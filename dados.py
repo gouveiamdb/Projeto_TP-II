@@ -58,6 +58,12 @@ else:
         print(f"\nEstado com a nota do ENEM mais alta: {estado_max_nota} : {nota_max}")
 
         # Comparativo entre escola pública e privada
+        dict_escola = {
+            1: 'Não Respondeu',
+            2: 'Pública',  
+            3: 'Privada'
+        }
+        df['TP_ESCOLA'] = df['TP_ESCOLA'].map(dict_escola)
         desempenho_escola = df.groupby('TP_ESCOLA')['NU_NOTA_REDACAO'].mean()
         print("\nDesempenho médio de redação por tipo de escola:")
         print(desempenho_escola)
