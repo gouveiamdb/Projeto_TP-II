@@ -5,10 +5,10 @@ print("Script iniciado")
 
 # Define as colunas que serão carregadas
 colunas_necessarias = ['TP_SEXO', 'NU_NOTA_REDACAO', 'SG_UF_PROVA', 'TP_ESCOLA', 
-                       'TP_ST_CONCLUSAO', 'NU_NOTA_MT', 'NU_NOTA_CN', 'NU_NOTA_CH', 
-                       'NU_NOTA_LC', 'TP_FAIXA_ETARIA']
+                        'TP_ST_CONCLUSAO', 'NU_NOTA_MT', 'NU_NOTA_CN', 'NU_NOTA_CH', 
+                        'NU_NOTA_LC', 'TP_FAIXA_ETARIA']
 
-# Caminho relativo ao diretório do script
+# Caminho relativo ao diretório
 caminho_arquivo = os.path.join('MICRODADOS_ENEM_2021.csv')
 
 # Verifica se o arquivo existe
@@ -17,7 +17,7 @@ if not os.path.exists(caminho_arquivo):
 else:
     try:
         # Carrega o arquivo CSV com as colunas necessárias e em chunks para evitar erro de memória
-        chunksize = 100000  # Tamanho dos chunks (ajustável)
+        chunksize = 100000  # Tamanho do chunk ajustavel
         df_chunks = pd.read_csv(caminho_arquivo, sep=';', encoding='ISO-8859-1', 
                                 usecols=colunas_necessarias, chunksize=chunksize)
 
