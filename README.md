@@ -47,16 +47,17 @@ O script inclui tratamento de erros para lidar com situações como:
 ## Autores
 
 - **Luiz Gomes**
-[GitHub](https://github.com/) | [LinkedIn](https://www.linkedin.com/in//)
+[GitHub](https://github.com/) | [LinkedIn](https://www.linkedin.com/in/lucgomes1)
 
 - **Jonathas**
 [GitHub](https://github.com/) | [LinkedIn](https://www.linkedin.com/in//)
 
 - **Matheus Gouveia**  
-  [GitHub](https://github.com/gouveiamdb) | [LinkedIn](https://www.linkedin.com/in/matheus-gouveia-387a19258/)
+  [GitHub](https://github.com/gouveiamdb) | [LinkedIn](https://www.linkedin.com/in/gouveiamdb)
 
 - **Olga Osorio Aburto**  
-  [GitHub](https://github.com/) | [LinkedIn](https://www.linkedin.com/in/)
+  [GitHub](http://github.com/olgaosorio/) | [LinkedIn](http://linkedin.com/in/olga-osorio-aburto/)
 
-- **Luiz Gomes**
-[GitHub](https://github.com/) | [LinkedIn](https://www.linkedin.com/in//)
+## Apresentação
+
+https://prezi.com/p/dnhg0qdgcy6n/analise-de-dados-em-grupo/?present=1
