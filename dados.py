@@ -1,14 +1,24 @@
 import pandas as pd
 import os
+import gdown
 
 print("Script iniciado")
 
 # Define as colunas que serão carregadas
 colunas_necessarias = ['TP_SEXO', 'NU_NOTA_REDACAO', 'SG_UF_PROVA', 'TP_ESCOLA', 
-                        'TP_ST_CONCLUSAO', 'NU_NOTA_MT', 'NU_NOTA_CN', 'NU_NOTA_CH', 
-                        'NU_NOTA_LC', 'TP_FAIXA_ETARIA']
+                       'TP_ST_CONCLUSAO', 'NU_NOTA_MT', 'NU_NOTA_CN', 'NU_NOTA_CH', 
+                       'NU_NOTA_LC', 'TP_FAIXA_ETARIA']
 
-# Caminho relativo ao diretório
+# URL para o arquivo no Google Drive
+url = 'https://drive.google.com/uc?id=19wkFD52Y2E-Qi-oNw063E9gGW4Bi5u1-'
+
+# Caminho absoluto para o arquivo
+output = 'MICRODADOS_ENEM_2021.csv'
+
+# Baixar o arquivo do Google Drive
+gdown.download(url, output, quiet=False)
+
+# Caminho relativo ao diretório do script
 caminho_arquivo = os.path.join('MICRODADOS_ENEM_2021.csv')
 
 # Verifica se o arquivo existe
@@ -17,7 +27,7 @@ if not os.path.exists(caminho_arquivo):
 else:
     try:
         # Carrega o arquivo CSV com as colunas necessárias e em chunks para evitar erro de memória
-        chunksize = 100000  # Tamanho do chunk ajustavel
+        chunksize = 100000  # Tamanho dos chunks (ajustável)
         df_chunks = pd.read_csv(caminho_arquivo, sep=';', encoding='ISO-8859-1', 
                                 usecols=colunas_necessarias, chunksize=chunksize)
 
@@ -58,12 +68,6 @@ else:
         print(f"\nEstado com a nota do ENEM mais alta: {estado_max_nota} : {nota_max}")
 
         # Comparativo entre escola pública e privada
-        dict_escola = {
-            1: 'Não Respondeu',
-            2: 'Pública',  
-            3: 'Privada'
-        }
-        df['TP_ESCOLA'] = df['TP_ESCOLA'].map(dict_escola)
         desempenho_escola = df.groupby('TP_ESCOLA')['NU_NOTA_REDACAO'].mean()
         print("\nDesempenho médio de redação por tipo de escola:")
         print(desempenho_escola)
