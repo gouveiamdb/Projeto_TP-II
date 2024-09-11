@@ -15,8 +15,12 @@ url = 'https://drive.google.com/uc?id=19wkFD52Y2E-Qi-oNw063E9gGW4Bi5u1-'
 # Caminho absoluto para o arquivo
 output = 'MICRODADOS_ENEM_2021.csv'
 
-# Baixar o arquivo do Google Drive
-gdown.download(url, output, quiet=False)
+# Verifica se o arquivo já foi baixado
+if not os.path.exists(output):
+    print("Baixando o arquivo...")
+    gdown.download(url, output, quiet=False)
+else:
+    print("Arquivo já existe, pulando o download.")
 
 # Caminho relativo ao diretório do script
 caminho_arquivo = os.path.join('MICRODADOS_ENEM_2021.csv')
